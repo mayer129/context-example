@@ -14,8 +14,10 @@ export default function Home() {
    * and map through all of the items
    * to create a gallery of ItemCard components
   */
+  const { items, setItems } = useItems()
 
   const addToCart = (itemName) => {
+    setUser({name: user.name, cart: [...user.cart, items.find(e => e.name === itemName)]})
     /* TODO: Write function that updates the
      * user context object's cart 
      * to include the added item
@@ -36,6 +38,7 @@ export default function Home() {
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
         </svg>
+        <h4>{user.cart.length}</h4>
         </div>
         </Link>
         </div>
@@ -44,7 +47,12 @@ export default function Home() {
           * to display an ItemCard with the data for each
           */
           }
-          <p>plants will go here</p>
+          {/*<p>{JSON.stringify(items)}</p>*/}
+          
+          {items.map((e) => {
+            return (
+              <ItemCard name={e.name} img={e.img} stock={e.stock} price={e.price} add={addToCart}/>
+            )})}
         </div>
       </main>
     </div>
