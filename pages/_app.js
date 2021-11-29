@@ -13,12 +13,7 @@ function MyApp({ Component, pageProps }) {
    */
   const [user, setUser] = useState({
     name: "Murphy",
-    cart: [{ 
-      name: 'Snake Plant', 
-      img: 'https://res.cloudinary.com/social-upload-prod-media-cld/image/upload/shopify/1/0207/8508/products/SnakePlant_3.jpg?v=1589545105',
-      stock: 20,
-      price: 60
-    }]
+    cart: []
   })
   const userValue = {
     user, setUser
